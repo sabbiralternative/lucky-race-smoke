@@ -23,6 +23,6 @@ createRoot(document.getElementById("root")).render(
       </PersistGate>
     </Provider>
     <Toaster containerStyle={{ zIndex: 9999999 }} />
-  </ApiProvider>
+  </ApiProvider>,
   // </StrictMode>
 );

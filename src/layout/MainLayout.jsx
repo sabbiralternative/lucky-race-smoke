@@ -9,9 +9,8 @@ const MainLayout = () => {
   const { showMenu } = useSelector((state) => state.global);
   return (
     <Fragment>
-      {showMenu && <Menu />}
-
       <div data-v-1971eb1e className="app-root">
+        {showMenu && <Menu />}
         <div data-v-a2a30962 data-v-1971eb1e className="default-layout">
           <div data-v-a2a30962 className="default-layout__content">
             <div
@@ -21,7 +20,11 @@ const MainLayout = () => {
               style={{ opacity: 1 }}
             >
               <Header />
-              <div data-v-2e21701c className="content">
+              <div
+                data-v-2e21701c
+                className="content"
+                style={{ height: "calc(100vh - 37px)" }}
+              >
                 <div data-v-2e21701c className="game-lobby">
                   <ScrollbarNavItems />
                   <Outlet />
