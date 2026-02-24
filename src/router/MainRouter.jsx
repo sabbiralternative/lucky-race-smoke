@@ -8,6 +8,7 @@ import Originals from "../pages/Casino/Originals";
 import FastGames from "../pages/Casino/FastGames";
 import Teenpatti from "../pages/Casino/Teenpatti";
 import Roulette from "../pages/Casino/Roulette";
+import DragonTiger2020 from "../pages/Game/DragonTiger2020/DragonTiger2020";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -54,6 +55,10 @@ const MainRouter = () => {
       {
         path: "/:token",
         element: <Auth />,
+      },
+      {
+        path: "/game/dt2020/:eventTypeId/:eventId",
+        element: <DragonTiger2020 />,
       },
     ],
     {
