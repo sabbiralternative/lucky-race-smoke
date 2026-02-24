@@ -1,10 +1,27 @@
 import { Fragment } from "react";
 import ModalWrapper from "../../modals/ModalWrapper/ModalWrapper";
+import { useDispatch, useSelector } from "react-redux";
+import { setChipItems } from "../../../redux/features/global/globalSlice";
 
 const ChipModal = ({ setShowChipListModal }) => {
+  const dispatch = useDispatch();
+  const { chipItems } = useSelector((state) => state.global);
   const closeModal = () => {
     setShowChipListModal(false);
   };
+
+  const handleChipChange = (clickedChip) => {
+    const updated = chipItems.map((chip) =>
+      chip.label === clickedChip.label
+        ? { ...chip, visible: !chip.visible }
+        : chip,
+    );
+
+    dispatch(setChipItems(updated));
+  };
+
+  const visibleLength = chipItems?.filter((chip) => chip.visible).length;
+
   return (
     <Fragment>
       <div data-v-a2a30962="" id="swipeClone" draggable="false"></div>
@@ -108,500 +125,37 @@ const ChipModal = ({ setShowChipListModal }) => {
                           data-v-399a7156-s
                           className="bet-chip-config-list"
                         >
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
+                          {chipItems?.map((chip) => {
+                            return (
+                              <div
+                                style={{
+                                  pointerEvents:
+                                    visibleLength > 5 && !chip?.visible
+                                      ? "none"
+                                      : "auto",
+                                }}
+                                onClick={() => handleChipChange(chip)}
+                                key={chip?.label}
                                 data-v-0f33e8a8
                                 data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-1.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-2.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-5.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content current-chip"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-10.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-20.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-25.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content current-chip"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-50.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content current-chip"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-100.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-200.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content current-chip"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-500.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-1K.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content current-chip"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-2K.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-5K.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content current-chip"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-10K.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-20K.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-50K.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-100K.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-200K.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-500K.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-1M.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-2M.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-5M.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-10M.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-20M.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-50M.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            data-v-0f33e8a8
-                            data-v-399a7156-s
-                            className="bet-chip-config-item"
-                          >
-                            <div
-                              data-v-0f33e8a8
-                              data-v-399a7156-s
-                              className="chip-content"
-                            >
-                              <img
-                                data-v-0f33e8a8
-                                data-v-399a7156-s
-                                className="app-image item-bg"
-                                src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-100M.png.webp"
-                                loading="lazy"
-                              />
-                            </div>
-                          </div>
+                                className="bet-chip-config-item"
+                              >
+                                <div
+                                  data-v-0f33e8a8
+                                  data-v-399a7156-s
+                                  className={`chip-content  ${chip.visible ? "current-chip" : ""}`}
+                                >
+                                  <img
+                                    data-v-0f33e8a8
+                                    data-v-399a7156-s
+                                    className="app-image item-bg"
+                                    src={`https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-${chip.label}.png.webp`}
+                                    loading="lazy"
+                                  />
+                                </div>
+                              </div>
+                            );
+                          })}
                         </div>
                         <div
                           data-v-0f33e8a8

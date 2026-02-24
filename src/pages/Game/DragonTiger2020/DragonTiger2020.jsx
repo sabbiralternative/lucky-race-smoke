@@ -8,14 +8,29 @@ import LiveShowTopPart from "./LiveShowTopPart";
 import ResultDisplay from "./ResultDisplay";
 import ScoreDisplay from "./ScoreDisplay";
 import { useGetEventDetailsQuery } from "../../../redux/features/events/events";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 
 const DragonTiger2020 = () => {
+  const [double, setDouble] = useState(false);
+  const [animation, setAnimation] = useState([]);
+  const [showWinLossResult, setShowWinLossResult] = useState(false);
+  const [totalWinAmount, setTotalWinAmount] = useState(null);
+  const { stake } = useSelector((state) => state.global);
+  const initialState = {
+    dragon: { show: false, stake },
+    tiger: { show: false, stake },
+    tie: { show: false, stake },
+    suitedTie: { show: false, stake },
+  };
+  const [stakeState, setStakeState] = useState(initialState);
   const { eventTypeId, eventId } = useParams();
   const { data } = useGetEventDetailsQuery(
     { eventTypeId, eventId },
     { pollingInterval: 1000 },
   );
-  console.log(data);
+
+  const firstEvent = data?.result?.[0];
 
   return (
     <div id="App" data-v-app style={{ width: "100%", height: "100%" }}>
@@ -27,7 +42,18 @@ const DragonTiger2020 = () => {
 
               <div data-v-3e382ff1 className="bet-wrapper">
                 <BetHeader />
-                <BetArea />
+                <BetArea
+                  initialState={initialState}
+                  double={double}
+                  animation={animation}
+                  setAnimation={setAnimation}
+                  setShowWinLossResult={setShowWinLossResult}
+                  setTotalWinAmount={setTotalWinAmount}
+                  stakeState={stakeState}
+                  setStakeState={setStakeState}
+                  data={data?.result}
+                  status={firstEvent?.status}
+                />
                 <Chip />
                 <div
                   data-v-18259776

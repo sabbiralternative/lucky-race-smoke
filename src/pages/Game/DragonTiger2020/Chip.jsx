@@ -1,10 +1,17 @@
 import { Fragment, useState } from "react";
 import ChipModal from "../../../component/shared/ChipModal/ChipModal";
 import BetRecord from "../../../component/modals/BetRecord/BetRecord";
+import { useSelector } from "react-redux";
 
 const Chip = () => {
+  const { chipItems } = useSelector((state) => state.global);
+  const sortedChipItems = [...chipItems].sort((a, b) => {
+    return Number(b.visible) - Number(a.visible);
+  });
   const [showChipListModal, setShowChipListModal] = useState(false);
   const [showBetRecordModal, setShowBetRecord] = useState(false);
+  const [activeChip, setActiveChip] = useState(null);
+
   return (
     <Fragment>
       {showChipListModal && (
@@ -46,340 +53,34 @@ const Chip = () => {
                       style={{ width: "248px" }}
                     >
                       <div data-v-029c9be4 className="bet-chip-list">
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div
-                            data-v-4e072ab6
-                            className="chip-content current-chip"
-                          >
-                            <img
+                        {sortedChipItems?.map((chip) => {
+                          return (
+                            <div
+                              onClick={() => setActiveChip(chip.label)}
+                              key={chip.label}
                               data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-10.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-50.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-100.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-500.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-2K.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-10K.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
+                              data-v-029c9be4
+                              className="chip-item"
+                            >
+                              <div
+                                data-v-4e072ab6
+                                className={`chip-content  ${chip.label === activeChip ? "current-chip" : ""}`}
+                              >
+                                <img
+                                  data-v-4e072ab6
+                                  className="app-image item-bg"
+                                  src={`https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-${chip.label}.png.webp`}
+                                  loading="lazy"
+                                />
+                              </div>
+                            </div>
+                          );
+                        })}
                       </div>
-                    </div>
-                    <div
-                      data-v-029c9be4
-                      data-v-1f6a537f-s
-                      className="van-swipe-item"
-                      style={{ width: "248px" }}
-                    >
-                      <div data-v-029c9be4 className="bet-chip-list">
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-1.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-2.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-5.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-20.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-25.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-200.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      data-v-029c9be4
-                      data-v-1f6a537f-s
-                      className="van-swipe-item"
-                      style={{ width: "248px" }}
-                    ></div>
-                    <div
-                      data-v-029c9be4
-                      data-v-1f6a537f-s
-                      className="van-swipe-item"
-                      style={{ width: "248px" }}
-                    ></div>
-                    <div
-                      data-v-029c9be4
-                      data-v-1f6a537f-s
-                      className="van-swipe-item"
-                      style={{ width: "248px" }}
-                    >
-                      <div data-v-029c9be4 className="bet-chip-list">
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-2M.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-5M.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-10M.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-20M.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-50M.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          data-v-4e072ab6
-                          data-v-029c9be4
-                          className="chip-item"
-                        >
-                          <div data-v-4e072ab6 className="chip-content">
-                            <img
-                              data-v-4e072ab6
-                              className="app-image item-bg"
-                              src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-100M.png.webp"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div data-v-1f6a537f className="indicator-slot">
-                  <div
-                    data-v-029c9be4
-                    data-v-1f6a537f-s
-                    className="indicator-box-wrapper"
-                  >
-                    <div
-                      data-v-029c9be4
-                      data-v-1f6a537f-s
-                      className="indicator-box"
-                    >
-                      <div
-                        data-v-029c9be4
-                        data-v-1f6a537f-s
-                        className="custom-indicator active-indicator"
-                      />
-                      <div
-                        data-v-029c9be4
-                        data-v-1f6a537f-s
-                        className="custom-indicator"
-                      />
-                      <div
-                        data-v-029c9be4
-                        data-v-1f6a537f-s
-                        className="custom-indicator"
-                      />
-                      <div
-                        data-v-029c9be4
-                        data-v-1f6a537f-s
-                        className="custom-indicator"
-                      />
-                      <div
-                        data-v-029c9be4
-                        data-v-1f6a537f-s
-                        className="custom-indicator"
-                      />
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div data-v-0f33e8a8 data-v-029c9be4 className="bet-chip-config">
-            <div data-v-399a7156 className="cg-select">
-              <div data-v-399a7156 />
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { chipItems } from "../../../static/chipData";
 
 const initialState = {
   group: 0,
@@ -10,10 +11,11 @@ const initialState = {
   showLanguageModal: false,
   showNotification: false,
   showChip: false,
-  stake: 100,
+  stake: 50,
   deviseHeight: 0,
   deviceWidth: 0,
   showMenu: false,
+  chipItems: [...chipItems],
 };
 
 const stateSlice = createSlice({
@@ -59,6 +61,9 @@ const stateSlice = createSlice({
     setShowMenu: (state, action) => {
       state.showMenu = action.payload;
     },
+    setChipItems: (state, action) => {
+      state.chipItems = action.payload;
+    },
   },
 });
 
@@ -76,6 +81,7 @@ export const {
   setDeviseHeight,
   setDeviceWidth,
   setShowMenu,
+  setChipItems,
 } = stateSlice.actions;
 
 export default stateSlice.reducer;
