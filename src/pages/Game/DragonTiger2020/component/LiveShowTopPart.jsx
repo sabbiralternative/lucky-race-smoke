@@ -1,4 +1,6 @@
-const LiveShowTopPart = () => {
+import Counter from "./Counter";
+
+const LiveShowTopPart = ({ firstEvent }) => {
   return (
     <div data-v-3e382ff1 className="live-show">
       <div
@@ -124,7 +126,7 @@ const LiveShowTopPart = () => {
         src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/icon/i_room_switch_2.png.webp"
         style={{ width: "var(--cg-px-56)", bottom: "73px" }}
       />
-      <div
+      {/* <div
         data-v-4ae18bf3
         data-v-3e382ff1
         className="betting-status"
@@ -146,7 +148,7 @@ const LiveShowTopPart = () => {
           transform: "none",
           "--stroke-color-thick": "#f1494966",
           "--stroke-color-thin": "#f14949",
-          display: "none",
+          // display: "none",
         }}
       >
         <svg
@@ -181,7 +183,8 @@ const LiveShowTopPart = () => {
             </text>
           </g>
         </svg>
-      </div>
+      </div> */}
+      <Counter firstEvent={firstEvent} />
       <div
         data-v-31579fc4
         data-v-3e382ff1

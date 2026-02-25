@@ -1,16 +1,17 @@
 import { Fragment, useState } from "react";
-import ChipModal from "../../../component/shared/ChipModal/ChipModal";
-import BetRecord from "../../../component/modals/BetRecord/BetRecord";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import BetRecord from "../../../../component/modals/BetRecord/BetRecord";
+import ChipModal from "../../../../component/shared/ChipModal/ChipModal";
 
 const Chip = () => {
+  const dispatch = useDispatch();
   const { chipItems } = useSelector((state) => state.global);
   const sortedChipItems = [...chipItems].sort((a, b) => {
     return Number(b.visible) - Number(a.visible);
   });
   const [showChipListModal, setShowChipListModal] = useState(false);
   const [showBetRecordModal, setShowBetRecord] = useState(false);
-  const [activeChip, setActiveChip] = useState(null);
+  const [activeChip, setActiveChip] = useState(50);
 
   return (
     <Fragment>
@@ -56,7 +57,10 @@ const Chip = () => {
                         {sortedChipItems?.map((chip) => {
                           return (
                             <div
-                              onClick={() => setActiveChip(chip.label)}
+                              onClick={() => {
+                                setActiveChip(chip.label);
+                                dispatch(setStake(chip?.value));
+                              }}
                               key={chip.label}
                               data-v-4e072ab6
                               data-v-029c9be4
@@ -69,7 +73,7 @@ const Chip = () => {
                                 <img
                                   data-v-4e072ab6
                                   className="app-image item-bg"
-                                  src={`https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-${chip.label}.png.webp`}
+                                  src={`/src/assets/images/bet-chip/bet-chip-${chip.label}.png.webp`}
                                   loading="lazy"
                                 />
                               </div>

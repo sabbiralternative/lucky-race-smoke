@@ -1,21 +1,25 @@
 import { useParams } from "react-router-dom";
-import BetArea from "./BetArea";
-import BetHeader from "./BetHeader";
-import CardDisplay from "./CardDisplay";
-import Chip from "./Chip";
-import GoodRoad from "./GoodRoad";
-import LiveShowTopPart from "./LiveShowTopPart";
-import ResultDisplay from "./ResultDisplay";
-import ScoreDisplay from "./ScoreDisplay";
+
+import BetHeader from "./component/BetHeader";
+import CardDisplay from "./component/CardDisplay";
+import LiveShowTopPart from "./component/LiveShowTopPart";
+import ResultDisplay from "./component/ResultDisplay";
+import ScoreDisplay from "./component/ScoreDisplay";
 import { useGetEventDetailsQuery } from "../../../redux/features/events/events";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { Status } from "../../../const";
+import Winner from "./component/Winner";
+import BetArea from "./component/BetArea";
+import Chip from "./component/Chip";
+import GoodRoad from "./component/GoodRoad";
 
 const DragonTiger2020 = () => {
   const [double, setDouble] = useState(false);
   const [animation, setAnimation] = useState([]);
   const [showWinLossResult, setShowWinLossResult] = useState(false);
   const [totalWinAmount, setTotalWinAmount] = useState(null);
+  const [currentRoundWinAmount, setCurrentRoundWinAmount] = useState(null);
   const { stake } = useSelector((state) => state.global);
   const initialState = {
     dragon: { show: false, stake },
@@ -38,7 +42,7 @@ const DragonTiger2020 = () => {
         <div data-v-a2a30962 data-v-1971eb1e className="default-layout">
           <div data-v-a2a30962 className="default-layout__content">
             <div data-v-3e382ff1 className="subclass">
-              <LiveShowTopPart />
+              <LiveShowTopPart firstEvent={firstEvent} />
 
               <div data-v-3e382ff1 className="bet-wrapper">
                 <BetHeader />
@@ -60,44 +64,31 @@ const DragonTiger2020 = () => {
                   data-v-3e382ff1
                   className="flex fdr-c ai-c bet-popup-wrapper"
                 />
-
-                {/* <div
-                  data-v-6c15a629
-                  data-v-3e382ff1
-                  className="result-container"
-                >
-                  <ScoreDisplay />
-                  <CardDisplay />
-                  <ResultDisplay />
+                {firstEvent?.status === Status.SUSPENDED && (
                   <div
                     data-v-6c15a629
-                    className="win-aminate"
-                    style={{ display: "none" }}
+                    data-v-3e382ff1
+                    className="result-container"
                   >
-                    <div data-v-6c15a629>
-                      <div data-v-6c15a629 className="win-aminate-nr">
-                        <img
-                          data-v-6c15a629
-                          className="app-image w_a_n-bg"
-                          src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/dark/banker-win-card-bg.png.webp"
-                          loading="lazy"
-                        />
-                        <div data-v-6c15a629 className="w_a_nr">
-                          <p data-v-6c15a629 className="w_a_n_p1">
-                            Dragon Wins
-                          </p>
-                          <p data-v-6c15a629 className="w_a_n_p2">
-                            {" "}
-                            +0.00
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                    <ScoreDisplay firstEvent={firstEvent} />
+                    <CardDisplay firstEvent={firstEvent} />
+                    <ResultDisplay firstEvent={firstEvent} />
+                    <Winner
+                      firstEvent={firstEvent}
+                      currentRoundWinAmount={currentRoundWinAmount}
+                    />
                   </div>
-                </div> */}
+                )}
               </div>
 
-              <GoodRoad />
+              <GoodRoad
+                showWinLossResult={showWinLossResult}
+                setShowWinLossResult={setShowWinLossResult}
+                setTotalWinAmount={setTotalWinAmount}
+                totalWinAmount={totalWinAmount}
+                data={data?.result}
+                setCurrentRoundWinAmount={setCurrentRoundWinAmount}
+              />
             </div>
           </div>
         </div>

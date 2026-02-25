@@ -1,3 +1,80 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*! Circular Progress Bar Animation Start  */
+.circular-progress {
+  --size: 250px;
+  --half-size: calc(var(--size) / 2);
+  --stroke-width: 30px;
+  --radius: calc((var(--size) - var(--stroke-width)) / 2);
+  --circumference: calc(var(--radius) * pi * 2);
+  --dash: calc((var(--progress) * var(--circumference)) / 100);
+  /* animation: progress-animation 10s linear 0s 1 forwards; */
+}
+
+*,
+::before,
+::after {
+  border-style: none;
+}
+
+.circular-progress circle {
+  cx: var(--half-size);
+  cy: var(--half-size);
+  r: var(--radius);
+  stroke-width: var(--stroke-width);
+  fill: none;
+  stroke-linecap: round;
+}
+
+.circular-progress circle.bg {
+  /* stroke: #32d74b; */
+}
+
+.circular-progress circle.fg {
+  transform: rotate(-90deg);
+  transform-origin: var(--half-size) var(--half-size);
+  stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
+  transition: stroke-dasharray 0.3s linear 0s;
+  /* stroke-width: 35px; */
+  /* stroke: black; */
+}
+
+@property --progress {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 100;
+}
+
+@keyframes progress-animation {
+  from {
+    --progress: 100;
+  }
+  to {
+    --progress: 0;
+  }
+}
+
+.responsive-prediction-margin {
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 330px) {
+  .responsive-prediction-margin {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .responsive-prediction-margin {
+    margin-top: 70px;
+  }
+}
+@media screen and (min-width: 500px) {
+  .responsive-prediction-margin {
+    margin-top: 270px;
+  }
+}
+
+/*! Circular Progress Bar Animation End  */

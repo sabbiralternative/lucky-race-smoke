@@ -1,4 +1,106 @@
-const GoodRoad = () => {
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { setBalance } from "../../../../redux/features/auth/authSlice";
+
+const GoodRoad = ({
+  data,
+  totalWinAmount,
+  setTotalWinAmount,
+  setShowWinLossResult,
+  showWinLossResult,
+  setCurrentRoundWinAmount,
+}) => {
+  const dispatch = useDispatch();
+  const totalBetPlace = localStorage.getItem("totalBetPlace");
+  const { eventId } = useParams();
+  const { balance } = useSelector((state) => state.auth);
+
+  let totalBetAmount = 0;
+  if (totalBetPlace) {
+    const parseTotalBet = JSON.parse(totalBetPlace);
+
+    if (parseTotalBet?.length > 0) {
+      const filterOrderByEventId = parseTotalBet?.filter(
+        (order) => order?.eventId == eventId,
+      );
+      for (const order of filterOrderByEventId) {
+        totalBetAmount = parseFloat((totalBetAmount + order?.stake).toFixed(2));
+      }
+    }
+  }
+
+  useEffect(() => {
+    let totalWin = 0;
+
+    if (totalBetPlace) {
+      const parseTotalBet = JSON.parse(totalBetPlace);
+
+      if (parseTotalBet && parseTotalBet.length > 0) {
+        data?.forEach((games) => {
+          games?.runners?.forEach((runner) => {
+            if (runner?.status === "WINNER") {
+              const winnerFilter = parseTotalBet?.filter(
+                (order) =>
+                  order?.selection_id === runner?.id &&
+                  runner?.status === "WINNER",
+              );
+
+              const looserFilter = parseTotalBet?.filter(
+                (order) =>
+                  order?.selection_id === runner?.id &&
+                  runner?.status === "ACTIVE",
+              );
+
+              let WinnerSum = 0;
+              let looserSum = 0;
+              if (looserFilter) {
+                for (const looser of looserFilter) {
+                  looserSum = looserSum + -looser?.stake;
+                }
+              }
+
+              if (winnerFilter) {
+                for (const winner of winnerFilter) {
+                  WinnerSum += winner?.price * winner?.stake;
+                }
+              }
+
+              totalWin += looserSum + WinnerSum;
+
+              setTotalWinAmount(totalWin);
+              setCurrentRoundWinAmount(totalWin);
+              setShowWinLossResult(true);
+            }
+          });
+        });
+      }
+    }
+  }, [data, totalBetPlace]);
+
+  useEffect(() => {
+    if (totalBetPlace && (totalWinAmount != null || showWinLossResult)) {
+      const parseTotalBet = JSON.parse(totalBetPlace);
+      const filterOrderByEventId = parseTotalBet?.filter(
+        (order) => order?.eventId == eventId,
+      );
+      if (totalWinAmount > 0 && filterOrderByEventId?.length > 0) {
+        dispatch(setBalance(balance + parseFloat(totalWinAmount)));
+        // if (sound) {
+        //   playWinSound();
+        // }
+      }
+
+      const filterCurrentEventBet = parseTotalBet?.filter(
+        (bet) => bet?.eventId != eventId,
+      );
+
+      localStorage.setItem(
+        "totalBetPlace",
+        JSON.stringify(filterCurrentEventBet),
+      );
+    }
+  }, [eventId, totalWinAmount, showWinLossResult]);
   return (
     <div
       data-v-2f0bdb7a

@@ -149,7 +149,7 @@ const ChipModal = ({ setShowChipListModal }) => {
                                     data-v-0f33e8a8
                                     data-v-399a7156-s
                                     className="app-image item-bg"
-                                    src={`https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/baccarat/bet-chip-${chip.label}.png.webp`}
+                                    src={`/src/assets/images/bet-chip/bet-chip-${chip.label}.png.webp`}
                                     loading="lazy"
                                   />
                                 </div>

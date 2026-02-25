@@ -1,11 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useOrderMutation } from "../../../redux/features/events/events";
-import { Status } from "../../../const";
-import { handleStoreRecentPlay } from "../../../utils/handleStorateRecentPlay";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { setBalance } from "../../../redux/features/auth/authSlice";
-import Stake from "../../../component/UI/Stake/Stake";
+import { useOrderMutation } from "../../../../redux/features/events/events";
+import { Status } from "../../../../const";
+import Stake from "./Stake";
 
 const BetArea = ({
   double,
@@ -190,7 +188,6 @@ const BetArea = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [addOrder, status]);
 
-  console.log(data);
   return (
     <div
       data-v-12491877
@@ -257,23 +254,8 @@ const BetArea = ({
             </div>
           </div>
 
-          <div
-            data-v-3aa2fe16
-            className="bet-detail"
-            style={{ display: "block" }}
-          >
-            <div
-              data-v-3aa2fe16
-              className="bet-chip-container"
-              style={{ "--bottomRatio": "0.05" }}
-            >
-              {/* <div data-v-3aa2fe16 className="bet-chip-container__inner" /> */}
-              <Stake runner="dragon" stake={stake} stakeState={stakeState} />
-            </div>
-            <div data-v-3aa2fe16 className="bet-amount">
-              0
-            </div>
-          </div>
+          <Stake runner="dragon" stakeState={stakeState} />
+
           <div
             data-v-3aa2fe16
             className="ratio-wrapper"
@@ -359,23 +341,7 @@ const BetArea = ({
             </div>
           </div>
 
-          <div
-            data-v-3aa2fe16
-            className="bet-detail"
-            style={{ display: "block" }}
-          >
-            <div
-              data-v-3aa2fe16
-              className="bet-chip-container"
-              style={{ "--bottomRatio": "0.05" }}
-            >
-              {/* <div data-v-3aa2fe16 className="bet-chip-container__inner" /> */}
-              <Stake runner="tie" stake={stake} stakeState={stakeState} />
-            </div>
-            <div data-v-3aa2fe16 className="bet-amount">
-              0
-            </div>
-          </div>
+          <Stake runner="tie" stakeState={stakeState} />
           <div
             data-v-3aa2fe16
             className="ratio-wrapper"
@@ -461,23 +427,7 @@ const BetArea = ({
             </div>
           </div>
 
-          <div
-            data-v-3aa2fe16
-            className="bet-detail"
-            style={{ display: "block" }}
-          >
-            <div
-              data-v-3aa2fe16
-              className="bet-chip-container"
-              style={{ "--bottomRatio": "0.05" }}
-            >
-              {/* <div data-v-3aa2fe16 className="bet-chip-container__inner" /> */}
-              <Stake runner="tiger" stake={stake} stakeState={stakeState} />
-            </div>
-            <div data-v-3aa2fe16 className="bet-amount">
-              0
-            </div>
-          </div>
+          <Stake runner="tiger" stakeState={stakeState} />
           <div
             data-v-3aa2fe16
             className="ratio-wrapper"
@@ -565,23 +515,7 @@ const BetArea = ({
             </div>
           </div>
 
-          <div
-            data-v-3aa2fe16
-            className="bet-detail"
-            style={{ display: "block" }}
-          >
-            <div
-              data-v-3aa2fe16
-              className="bet-chip-container"
-              style={{ "--bottomRatio": "0.05" }}
-            >
-              {/* <div data-v-3aa2fe16 className="bet-chip-container__inner" /> */}
-              <Stake runner="suitedTie" stake={stake} stakeState={stakeState} />
-            </div>
-            <div data-v-3aa2fe16 className="bet-amount">
-              0
-            </div>
-          </div>
+          <Stake runner="suitedTie" stakeState={stakeState} />
           <div
             data-v-3aa2fe16
             className="ratio-wrapper"
