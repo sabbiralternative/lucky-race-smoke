@@ -9,6 +9,7 @@ import FastGames from "../pages/Casino/FastGames";
 import Teenpatti from "../pages/Casino/Teenpatti";
 import Roulette from "../pages/Casino/Roulette";
 import DragonTiger2020 from "../pages/Game/DragonTiger2020/DragonTiger2020";
+import Bollywood from "../pages/Casino/Bollywood";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -38,10 +39,10 @@ const MainRouter = () => {
             path: "/fast-games",
             element: <FastGames />,
           },
-          // {
-          //   path: "/bollywood",
-          //   element: <BollywoodThumbnail />,
-          // },
+          {
+            path: "/bollywood",
+            element: <Bollywood />,
+          },
           {
             path: "/teenpatti",
             element: <Teenpatti />,

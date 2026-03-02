@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useOrderMutation } from "../../../../redux/features/events/events";
 import { Status } from "../../../../const";
 import Stake from "./Stake";
+import { handleStoreRecentPlay } from "../../../../utils/handleStorateRecentPlay";
 
 const BetArea = ({
   double,

@@ -14,6 +14,7 @@ const CasinoThumbnail = ({ title, id, column }) => {
       navigate(formatLink);
     }
   };
+
   return (
     <div data-v-58411ceb data-v-2e21701c className="main">
       <div data-v-58411ceb className="componentBox">
