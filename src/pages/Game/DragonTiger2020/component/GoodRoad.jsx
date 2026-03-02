@@ -120,16 +120,16 @@ const GoodRoad = ({
         >
           <div data-v-2bbb8546 className="balance-info flex-info">
             <span data-v-2bbb8546>Balance(INR)</span>
-            <p data-v-2bbb8546>786.50</p>
+            <p data-v-2bbb8546>{balance}</p>
           </div>
           <div data-v-2bbb8546 className="bet-info flex-info">
             <span data-v-2bbb8546>Bet</span>
-            <p data-v-2bbb8546>0.00</p>
+            <p data-v-2bbb8546>{totalBetAmount}</p>
           </div>
           <div data-v-2bbb8546 className="win-loss-info flex-info">
             <span data-v-2bbb8546>WinLose</span>
             <p data-v-2bbb8546 className>
-              0.00
+              {showWinLossResult && totalWinAmount}
             </p>
           </div>
         </div>

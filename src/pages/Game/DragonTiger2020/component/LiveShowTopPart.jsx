@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import Counter from "./Counter";
+import { useDispatch } from "react-redux";
+import { setShowMenu } from "../../../../redux/features/global/globalSlice";
 
 const LiveShowTopPart = ({ firstEvent }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <div data-v-3e382ff1 className="live-show">
       <div
@@ -67,11 +72,11 @@ const LiveShowTopPart = ({ firstEvent }) => {
         >
           <div data-v-a4a3627e>No video playback permission</div>
         </div>
-        <div data-v-a4a3627e className="flex ta-c ai-c jc-c video-off">
+        {/* <div data-v-a4a3627e className="flex ta-c ai-c jc-c video-off">
           <div data-v-a4a3627e>You have turned off the video</div>
-        </div>
+        </div> */}
       </div>
-      <div
+      {/* <div
         data-v-169bae5f
         data-v-a4a3627e
         className="quality pos-r quality-switch"
@@ -88,9 +93,10 @@ const LiveShowTopPart = ({ firstEvent }) => {
             style={{ width: "var(--cg-px-38)" }}
           />
         </button>
-      </div>
+      </div> */}
       <div data-v-3e382ff1 className="title-bar">
         <img
+          onClick={() => navigate(-1)}
           data-v-103f45dc
           data-v-3e382ff1
           className="cg_icon back i_back_icon"
@@ -98,10 +104,11 @@ const LiveShowTopPart = ({ firstEvent }) => {
           style={{ width: "var(--cg-px-56)" }}
         />
         <div data-v-3e382ff1 className="right">
-          <div data-v-3e382ff1 className="entire-shoe">
+          {/* <div data-v-3e382ff1 className="entire-shoe">
             Blockchain Poker Box
-          </div>
+          </div> */}
           <img
+            onClick={() => dispatch(setShowMenu(true))}
             data-v-103f45dc
             data-v-3e382ff1
             className="cg_icon more i_more_icon"
@@ -111,21 +118,21 @@ const LiveShowTopPart = ({ firstEvent }) => {
         </div>
       </div>
 
-      <div data-v-3e382ff1 className="btnsStyle" style={{ height: "85px" }} />
-      <img
+      {/* <div data-v-3e382ff1 className="btnsStyle" style={{ height: "85px" }} /> */}
+      {/* <img
         data-v-103f45dc
         data-v-3e382ff1
         className="cg_icon chat-message-btn-2"
         src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/icon/i_chat_btn_2.png.webp"
         style={{ width: "var(--cg-px-56)" }}
-      />
-      <img
+      /> */}
+      {/* <img
         data-v-103f45dc
         data-v-3e382ff1
         className="cg_icon room_switch"
         src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/icon/i_room_switch_2.png.webp"
         style={{ width: "var(--cg-px-56)", bottom: "73px" }}
-      />
+      /> */}
       {/* <div
         data-v-4ae18bf3
         data-v-3e382ff1
@@ -185,7 +192,7 @@ const LiveShowTopPart = ({ firstEvent }) => {
         </svg>
       </div> */}
       <Counter firstEvent={firstEvent} />
-      <div
+      {/* <div
         data-v-31579fc4
         data-v-3e382ff1
         className="collect-btn"
@@ -198,8 +205,8 @@ const LiveShowTopPart = ({ firstEvent }) => {
           src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/icon/i_collect_off.png.webp"
           style={{ width: "var(--cg-px-56)" }}
         />
-      </div>
-      <div data-v-3e382ff1 className="i_pos-left-bottom">
+      </div> */}
+      {/* <div data-v-3e382ff1 className="i_pos-left-bottom">
         <div
           data-v-f675a87a
           data-v-3e382ff1
@@ -227,7 +234,7 @@ const LiveShowTopPart = ({ firstEvent }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

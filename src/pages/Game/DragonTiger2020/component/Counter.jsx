@@ -10,7 +10,7 @@ const Counter = ({ firstEvent }) => {
       {timer >= 0 && (
         <div className="absolute z-[99999] top-[0%] left-20 -translate-x-1/2">
           <div className="w-[30px] lg:scale-150 origin-center aspect-square rounded-full flex justify-center items-center relative">
-            <div className="border-[6px] h-[83%] w-[83%] rounded-full aspect-square absolute border-white/10 bg-black/10" />
+            <div className="border-[6px]  w-[83%] rounded-full aspect-square absolute border-white/10 bg-black/10" />
             <svg
               style={{
                 animation: `progress-animation ${timerDuration}s linear 0s 1 forwards`,

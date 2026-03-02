@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import BetHeader from "./component/BetHeader";
+// import BetHeader from "./component/BetHeader";
 import CardDisplay from "./component/CardDisplay";
 import LiveShowTopPart from "./component/LiveShowTopPart";
 import ResultDisplay from "./component/ResultDisplay";
@@ -13,8 +13,10 @@ import Winner from "./component/Winner";
 import BetArea from "./component/BetArea";
 import Chip from "./component/Chip";
 import GoodRoad from "./component/GoodRoad";
+import Menu from "../../../component/modals/Menu/Menu";
 
 const DragonTiger2020 = () => {
+  const { showMenu } = useSelector((state) => state.global);
   const [double, setDouble] = useState(false);
   const [animation, setAnimation] = useState([]);
   const [showWinLossResult, setShowWinLossResult] = useState(false);
@@ -38,6 +40,7 @@ const DragonTiger2020 = () => {
 
   return (
     <div id="App" data-v-app style={{ width: "100%", height: "100%" }}>
+      {showMenu && <Menu />}
       <div data-v-1971eb1e className="app-root">
         <div data-v-a2a30962 data-v-1971eb1e className="default-layout">
           <div data-v-a2a30962 className="default-layout__content">
@@ -45,7 +48,7 @@ const DragonTiger2020 = () => {
               <LiveShowTopPart firstEvent={firstEvent} />
 
               <div data-v-3e382ff1 className="bet-wrapper">
-                <BetHeader />
+                {/* <BetHeader /> */}
                 <BetArea
                   initialState={initialState}
                   double={double}
