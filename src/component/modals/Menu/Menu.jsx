@@ -1,9 +1,10 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setShowMenu } from "../../../redux/features/global/globalSlice";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
 const Menu = () => {
+  const [activeTab, setActiveTab] = useState("setting");
   const dispatch = useDispatch();
 
   const handleClose = () => {
@@ -88,15 +89,19 @@ const Menu = () => {
                           >
                             <dl data-v-823a3766 style={{ width: "100%" }}>
                               <dt
+                                onClick={() => setActiveTab("setting")}
+                                data-tab="Settings"
                                 data-v-823a3766
-                                className="nav_item active"
+                                className={`nav_item ${activeTab === "setting" ? "active" : ""}`}
                                 style={{ flex: "1 1 0%" }}
                               >
                                 Settings
                               </dt>
                               <dt
+                                onClick={() => setActiveTab("betRecord")}
+                                data-tab="Bet Record"
                                 data-v-823a3766
-                                className="nav_item"
+                                className={`nav_item  ${activeTab === "betRecord" ? "active" : ""}`}
                                 style={{ flex: "1 1 0%" }}
                               >
                                 Bet Record
@@ -105,7 +110,10 @@ const Menu = () => {
                                 data-v-823a3766
                                 className="active_bg"
                                 style={{
-                                  transform: "translateX(0%)",
+                                  transform:
+                                    activeTab === "setting"
+                                      ? "translateX(0px)"
+                                      : "translateX(100%)",
                                   width: "50%",
                                 }}
                               />
@@ -135,8 +143,11 @@ const Menu = () => {
                           <div
                             className="van-swipe__track"
                             style={{
-                              transitionDuration: "0ms",
-                              transform: "translateX(0px)",
+                              transitionDuration: "500 ms",
+                              transform:
+                                activeTab === "setting"
+                                  ? "translateX(0px)"
+                                  : "translateX(-320px)",
                               width: "100%",
                             }}
                           >

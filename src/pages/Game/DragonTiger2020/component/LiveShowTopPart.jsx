@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Counter from "./Counter";
 import { useDispatch } from "react-redux";
 import { setShowMenu } from "../../../../redux/features/global/globalSlice";
+import AntMedia from "../../../../component/shared/Antmedia/Antmedia";
 
 const LiveShowTopPart = ({ firstEvent }) => {
   const dispatch = useDispatch();
@@ -13,7 +14,8 @@ const LiveShowTopPart = ({ firstEvent }) => {
         className="pos-a pol-0 pot-0 w100 h100 flex-middle fdr-c vid-off-bg dark"
         style={{ height: "192px" }}
       >
-        <img
+        {firstEvent?.server && <AntMedia server={firstEvent?.server} />}
+        {/* <img
           data-v-a4a3627e
           className="app-image logo"
           src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/common/dark/video-off-logo.png.webp"
@@ -21,7 +23,7 @@ const LiveShowTopPart = ({ firstEvent }) => {
         />
         <div data-v-a4a3627e className="txt">
           Blockchain fair game
-        </div>
+        </div> */}
       </div>
       <div
         data-v-a4a3627e
