@@ -13,7 +13,7 @@ import Chip from "../../../component/shared/Game/Chip/Chip";
 import GoodRoad from "../../../component/shared/Game/GoodRoad/GoodRoad";
 import Menu from "../../../component/modals/Menu/Menu";
 
-const AmarAkbarAnthony = () => {
+const AmarAkbarAnthonyA = () => {
   const { showMenu } = useSelector((state) => state.global);
   const [showWinLossResult, setShowWinLossResult] = useState(false);
   const [totalWinAmount, setTotalWinAmount] = useState(null);
@@ -94,4 +94,4 @@ const AmarAkbarAnthony = () => {
   );
 };
 
-export default AmarAkbarAnthony;
+export default AmarAkbarAnthonyA;

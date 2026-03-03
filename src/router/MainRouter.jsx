@@ -10,8 +10,15 @@ import Teenpatti from "../pages/Casino/Teenpatti";
 import Roulette from "../pages/Casino/Roulette";
 import DragonTiger2020 from "../pages/Game/DragonTiger2020/DragonTiger2020";
 import Bollywood from "../pages/Casino/Bollywood";
-import LuckySeven from "../pages/Game/LuckySeven/LuckySeven";
-import AmarAkbarAnthony from "../pages/Game/AmarAkbarAnthony/AmarAkbarAnthony";
+import AmarAkbarAnthonyA from "../pages/Game/AmarAkbarAnthonyA/AmarAkbarAnthonyA";
+import LuckySevenA from "../pages/Game/LuckySevenA/LuckySevenA";
+import LuckySevenB from "../pages/Game/LuckySevenB/LuckySevenB";
+import LuckySevenC from "../pages/Game/LuckySevenC/LuckySevenC";
+import LuckySixA from "../pages/Game/LuckySixA/LuckySixA";
+import AmarAkbarAnthonyB from "../pages/Game/AmarAkbarAnthonyB/AmarAkbarAnthonyB";
+import Baccarat from "../pages/Game/Baccarat/Baccarat";
+import CenterCard from "../pages/Game/CenterCard/CenterCard";
+import DragonTigerPhoenix from "../pages/Game/DragonTigerPhoenix/DragonTigerPhoenix";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -64,12 +71,40 @@ const MainRouter = () => {
         element: <DragonTiger2020 />,
       },
       {
+        path: "/game/dtp/:eventTypeId/:eventId",
+        element: <DragonTigerPhoenix />,
+      },
+      {
         path: "/game/lucky7a/:eventTypeId/:eventId",
-        element: <LuckySeven />,
+        element: <LuckySevenA />,
+      },
+      {
+        path: "/game/lucky7b/:eventTypeId/:eventId",
+        element: <LuckySevenB />,
+      },
+      {
+        path: "/game/lucky7c/:eventTypeId/:eventId",
+        element: <LuckySevenC />,
+      },
+      {
+        path: "/game/lucky6a/:eventTypeId/:eventId",
+        element: <LuckySixA />,
       },
       {
         path: "/game/aaaa/:eventTypeId/:eventId",
-        element: <AmarAkbarAnthony />,
+        element: <AmarAkbarAnthonyA />,
+      },
+      {
+        path: "/game/aaab/:eventTypeId/:eventId",
+        element: <AmarAkbarAnthonyB />,
+      },
+      {
+        path: "/game/baccarat/:eventTypeId/:eventId",
+        element: <Baccarat />,
+      },
+      {
+        path: "/game/centercard/:eventTypeId/:eventId",
+        element: <CenterCard />,
       },
     ],
     {

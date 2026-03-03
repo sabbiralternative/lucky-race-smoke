@@ -15,7 +15,7 @@ import Chip from "../../../component/shared/Game/Chip/Chip";
 import GoodRoad from "../../../component/shared/Game/GoodRoad/GoodRoad";
 import Menu from "../../../component/modals/Menu/Menu";
 
-const LuckySeven = () => {
+const LuckySevenA = () => {
   const { showMenu } = useSelector((state) => state.global);
   const [showWinLossResult, setShowWinLossResult] = useState(false);
   const [totalWinAmount, setTotalWinAmount] = useState(null);
@@ -42,8 +42,6 @@ const LuckySeven = () => {
   );
 
   const firstEvent = data?.result?.[0];
-
-  console.log(data);
 
   return (
     <div id="App" data-v-app style={{ width: "100%", height: "100%" }}>
@@ -102,4 +100,4 @@ const LuckySeven = () => {
   );
 };
 
-export default LuckySeven;
+export default LuckySevenA;
