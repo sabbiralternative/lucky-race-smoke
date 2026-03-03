@@ -3,19 +3,17 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useOrderMutation } from "../../../../redux/features/events/events";
 import { Status } from "../../../../const";
-import Stake from "./Stake";
 import { handleStoreRecentPlay } from "../../../../utils/handleStorateRecentPlay";
+import Stake from "../../../../component/shared/Game/Stake/Stake";
+import { setBalance } from "../../../../redux/features/auth/authSlice";
 
 const BetArea = ({
-  double,
   data,
   status,
   setStakeState,
   stakeState,
   setTotalWinAmount,
   setShowWinLossResult,
-  animation,
-  setAnimation,
   initialState,
 }) => {
   const result = data?.[0]?.runners;
@@ -49,7 +47,7 @@ const BetArea = ({
       //   playPlaceChip();
       // }
       const { key, data, dataIndex, runnerIndex, type } = payload;
-      setAnimation([key]);
+
       const formatData = {
         marketId: data?.[dataIndex]?.marketId,
         roundId: data?.[dataIndex]?.roundId,
@@ -64,7 +62,6 @@ const BetArea = ({
         price: data?.[dataIndex]?.runners?.[runnerIndex]?.[type]?.[0]?.price,
       };
       const timeout = setTimeout(() => {
-        setAnimation([]);
         setStakeState((prev) => {
           const maxSerial = Math.max(
             0,

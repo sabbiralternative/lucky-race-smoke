@@ -1,6 +1,4 @@
-import { Fragment } from "react";
-
-const ResultDisplay = ({ firstEvent }) => {
+const Winner = ({ firstEvent, currentRoundWinAmount }) => {
   let card = undefined;
   const indexCard = firstEvent?.indexCard;
   if (indexCard?.length > 0) {
@@ -8,14 +6,14 @@ const ResultDisplay = ({ firstEvent }) => {
   }
 
   return (
-    <Fragment>
-      {card && (
-        <div
-          data-v-6c15a629
-          className="result-display-new win-aminate-nr"
-          style={{}}
-        >
-          {card == 7 && (
+    <div
+      data-v-6c15a629
+      className="win-aminate"
+      style={{ display: card ? "block" : "none" }}
+    >
+      <div data-v-6c15a629>
+        <div data-v-6c15a629 className="win-aminate-nr">
+          {card > 6 && card < 11 && (
             <img
               data-v-6c15a629
               className="app-image w_a_n-bg"
@@ -23,7 +21,7 @@ const ResultDisplay = ({ firstEvent }) => {
               loading="lazy"
             />
           )}
-          {card < 7 && (
+          {card > 10 && (
             <img
               data-v-6c15a629=""
               className="app-image w_a_n-bg"
@@ -31,7 +29,7 @@ const ResultDisplay = ({ firstEvent }) => {
               loading="lazy"
             />
           )}
-          {card > 7 && (
+          {card < 7 && (
             <img
               data-v-6c15a629=""
               className="app-image w_a_n-bg"
@@ -40,15 +38,22 @@ const ResultDisplay = ({ firstEvent }) => {
             />
           )}
 
-          <div data-v-6c15a629 className="w_a_nr">
-            <p data-v-6c15a629 className="w_a_n_p1">
-              {card > 7 ? "7 UP" : card < 7 ? "7 DOWN" : 7} Wins
-            </p>
-          </div>
+          {currentRoundWinAmount > 0 && (
+            <div data-v-6c15a629 className="w_a_nr">
+              <p data-v-6c15a629 className="w_a_n_p1">
+                YOU WIN
+              </p>
+
+              <p data-v-6c15a629 className="w_a_n_p2">
+                {" "}
+                +{currentRoundWinAmount}
+              </p>
+            </div>
+          )}
         </div>
-      )}
-    </Fragment>
+      </div>
+    </div>
   );
 };
 
-export default ResultDisplay;
+export default Winner;

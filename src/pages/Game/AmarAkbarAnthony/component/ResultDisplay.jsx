@@ -15,7 +15,7 @@ const ResultDisplay = ({ firstEvent }) => {
           className="result-display-new win-aminate-nr"
           style={{}}
         >
-          {card == 7 && (
+          {card > 6 && card < 11 && (
             <img
               data-v-6c15a629
               className="app-image w_a_n-bg"
@@ -23,7 +23,7 @@ const ResultDisplay = ({ firstEvent }) => {
               loading="lazy"
             />
           )}
-          {card < 7 && (
+          {card > 10 && (
             <img
               data-v-6c15a629=""
               className="app-image w_a_n-bg"
@@ -31,7 +31,7 @@ const ResultDisplay = ({ firstEvent }) => {
               loading="lazy"
             />
           )}
-          {card > 7 && (
+          {card < 7 && (
             <img
               data-v-6c15a629=""
               className="app-image w_a_n-bg"
@@ -42,7 +42,9 @@ const ResultDisplay = ({ firstEvent }) => {
 
           <div data-v-6c15a629 className="w_a_nr">
             <p data-v-6c15a629 className="w_a_n_p1">
-              {card > 7 ? "7 UP" : card < 7 ? "7 DOWN" : 7} Wins
+              {card < 7 && "Amar"}
+              {card > 6 && card < 11 && "Akbar"}
+              {card > 10 && "Anthony"} Wins
             </p>
           </div>
         </div>

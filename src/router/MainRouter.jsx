@@ -11,6 +11,7 @@ import Roulette from "../pages/Casino/Roulette";
 import DragonTiger2020 from "../pages/Game/DragonTiger2020/DragonTiger2020";
 import Bollywood from "../pages/Casino/Bollywood";
 import LuckySeven from "../pages/Game/LuckySeven/LuckySeven";
+import AmarAkbarAnthony from "../pages/Game/AmarAkbarAnthony/AmarAkbarAnthony";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -65,6 +66,10 @@ const MainRouter = () => {
       {
         path: "/game/lucky7a/:eventTypeId/:eventId",
         element: <LuckySeven />,
+      },
+      {
+        path: "/game/aaaa/:eventTypeId/:eventId",
+        element: <AmarAkbarAnthony />,
       },
     ],
     {

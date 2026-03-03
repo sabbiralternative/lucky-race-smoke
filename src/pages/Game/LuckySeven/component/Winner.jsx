@@ -1,16 +1,19 @@
 const Winner = ({ firstEvent, currentRoundWinAmount }) => {
-  const winner = firstEvent?.runners?.find(
-    (runner) => runner?.status === "WINNER",
-  );
+  let card = undefined;
+  const indexCard = firstEvent?.indexCard;
+  if (indexCard?.length > 0) {
+    card = Number(indexCard[0].slice(1));
+  }
+
   return (
     <div
       data-v-6c15a629
       className="win-aminate"
-      style={{ display: winner?.name ? "block" : "none" }}
+      style={{ display: card ? "block" : "none" }}
     >
       <div data-v-6c15a629>
         <div data-v-6c15a629 className="win-aminate-nr">
-          {winner?.name === "Dragon" && (
+          {card == 7 && (
             <img
               data-v-6c15a629
               className="app-image w_a_n-bg"
@@ -18,7 +21,7 @@ const Winner = ({ firstEvent, currentRoundWinAmount }) => {
               loading="lazy"
             />
           )}
-          {winner?.name === "Tiger" && (
+          {card < 7 && (
             <img
               data-v-6c15a629=""
               className="app-image w_a_n-bg"
@@ -26,7 +29,7 @@ const Winner = ({ firstEvent, currentRoundWinAmount }) => {
               loading="lazy"
             />
           )}
-          {(winner?.name === "Tie" || winner?.name === "Suited") && (
+          {card > 7 && (
             <img
               data-v-6c15a629=""
               className="app-image w_a_n-bg"

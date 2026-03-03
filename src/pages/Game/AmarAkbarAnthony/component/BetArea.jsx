@@ -196,115 +196,7 @@ const BetArea = ({
         <div
           onClick={() =>
             handleStakeChange({
-              key: "down",
-              data,
-              dataIndex: 0,
-              runnerIndex: 2,
-              type: "back",
-            })
-          }
-          data-v-3aa2fe16
-          data-v-12491877
-          className="flex fdr-c ai-c bet-item bet-column second-row blue"
-        >
-          <div
-            data-v-a792280e
-            data-v-3aa2fe16
-            className="text-container item-name-style"
-            style={{ height: "31px" }}
-          >
-            <span
-              data-v-a792280e
-              className="text-content isDark isDarkBig"
-              style={{ fontSize: "25px" }}
-            >
-              {data?.[0]?.runners[2]?.name}
-            </span>
-            <span
-              data-v-a792280e
-              className="text-content overlay"
-              style={{ fontSize: "25px" }}
-            >
-              {data?.[0]?.runners[2]?.name}
-            </span>
-          </div>
-          <span data-v-3aa2fe16 className="item-odds">
-            {data?.[0]?.runners[2]?.back?.[0]?.price}
-          </span>
-          <img
-            data-v-103f45dc
-            data-v-3aa2fe16
-            className="cg_icon item-help center"
-            src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/icon/dark/i_help.png.webp"
-            style={{ width: "var(--cg-px-28)", display: "none" }}
-          />
-
-          <Stake runner="down" stakeState={stakeState} />
-
-          <div
-            data-v-3aa2fe16
-            className="win-effect flashing"
-            style={{ display: "none" }}
-          />
-        </div>
-        <div
-          onClick={() =>
-            handleStakeChange({
-              key: "seven",
-              data,
-              dataIndex: 0,
-              runnerIndex: 1,
-              type: "back",
-            })
-          }
-          data-v-3aa2fe16
-          data-v-12491877
-          className="flex fdr-c ai-c bet-item bet-column second-row red"
-        >
-          <div
-            data-v-a792280e
-            data-v-3aa2fe16
-            className="text-container item-name-style"
-            style={{ height: "31px" }}
-          >
-            <span
-              data-v-a792280e
-              className="text-content isDark isDarkBig"
-              style={{ fontSize: "27px" }}
-            >
-              {data?.[0]?.runners[1]?.name}
-            </span>
-            <span
-              data-v-a792280e
-              className="text-content overlay"
-              style={{ fontSize: "27px" }}
-            >
-              {data?.[0]?.runners[1]?.name}
-            </span>
-          </div>
-          <span data-v-3aa2fe16 className="item-odds">
-            {data?.[0]?.runners[1]?.back?.[0]?.price}
-          </span>
-          <img
-            data-v-103f45dc
-            data-v-3aa2fe16
-            className="cg_icon item-help center"
-            src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/icon/dark/i_help.png.webp"
-            style={{ width: "var(--cg-px-28)", display: "none" }}
-          />
-
-          <Stake runner="seven" stakeState={stakeState} />
-
-          <div
-            data-v-3aa2fe16
-            className="win-effect flashing"
-            style={{ display: "none" }}
-          />
-        </div>
-        <div
-          onClick={() =>
-            handleStakeChange({
-              key: "up",
+              key: "amar",
               data,
               dataIndex: 0,
               runnerIndex: 0,
@@ -324,16 +216,16 @@ const BetArea = ({
             <span
               data-v-a792280e
               className="text-content isDark isDarkBig"
-              style={{ fontSize: "27px" }}
+              style={{ fontSize: "23px" }}
             >
-              {data?.[0]?.runners[0]?.name}
+              Amar
             </span>
             <span
               data-v-a792280e
               className="text-content overlay"
-              style={{ fontSize: "27px" }}
+              style={{ fontSize: "23px" }}
             >
-              {data?.[0]?.runners[0]?.name}
+              Amar
             </span>
           </div>
           <span data-v-3aa2fe16 className="item-odds">
@@ -347,7 +239,116 @@ const BetArea = ({
             style={{ width: "var(--cg-px-28)", display: "none" }}
           />
 
-          <Stake runner="up" stakeState={stakeState} />
+          <Stake runner="amar" stakeState={stakeState} />
+
+          <div
+            data-v-3aa2fe16
+            className="win-effect flashing"
+            style={{ display: "none" }}
+          />
+        </div>
+
+        <div
+          onClick={() =>
+            handleStakeChange({
+              key: "akbar",
+              data,
+              dataIndex: 0,
+              runnerIndex: 1,
+              type: "back",
+            })
+          }
+          data-v-3aa2fe16
+          data-v-12491877
+          className="flex fdr-c ai-c bet-item bet-column second-row red"
+        >
+          <div
+            data-v-a792280e
+            data-v-3aa2fe16
+            className="text-container item-name-style"
+            style={{ height: "31px" }}
+          >
+            <span
+              data-v-a792280e
+              className="text-content isDark isDarkBig"
+              style={{ fontSize: "23px" }}
+            >
+              Akbar
+            </span>
+            <span
+              data-v-a792280e
+              className="text-content overlay"
+              style={{ fontSize: "23px" }}
+            >
+              Akbar
+            </span>
+          </div>
+          <span data-v-3aa2fe16 className="item-odds">
+            {data?.[0]?.runners[1]?.back?.[0]?.price}
+          </span>
+          <img
+            data-v-103f45dc
+            data-v-3aa2fe16
+            className="cg_icon item-help center"
+            src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/icon/dark/i_help.png.webp"
+            style={{ width: "var(--cg-px-28)", display: "none" }}
+          />
+
+          <Stake runner="akbar" stakeState={stakeState} />
+
+          <div
+            data-v-3aa2fe16
+            className="win-effect flashing"
+            style={{ display: "none" }}
+          />
+        </div>
+        <div
+          onClick={() =>
+            handleStakeChange({
+              key: "anthony",
+              data,
+              dataIndex: 0,
+              runnerIndex: 2,
+              type: "back",
+            })
+          }
+          data-v-3aa2fe16
+          data-v-12491877
+          className="flex fdr-c ai-c bet-item bet-column second-row blue"
+        >
+          <div
+            data-v-a792280e
+            data-v-3aa2fe16
+            className="text-container item-name-style"
+            style={{ height: "31px" }}
+          >
+            <span
+              data-v-a792280e
+              className="text-content isDark isDarkBig"
+              style={{ fontSize: "23px" }}
+            >
+              Anthony
+            </span>
+            <span
+              data-v-a792280e
+              className="text-content overlay"
+              style={{ fontSize: "23px" }}
+            >
+              Anthony
+            </span>
+          </div>
+          <span data-v-3aa2fe16 className="item-odds">
+            {data?.[0]?.runners[2]?.back?.[0]?.price}
+          </span>
+          <img
+            data-v-103f45dc
+            data-v-3aa2fe16
+            className="cg_icon item-help center"
+            src="https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/icon/dark/i_help.png.webp"
+            style={{ width: "var(--cg-px-28)", display: "none" }}
+          />
+
+          <Stake runner="anthony" stakeState={stakeState} />
 
           <div
             data-v-3aa2fe16

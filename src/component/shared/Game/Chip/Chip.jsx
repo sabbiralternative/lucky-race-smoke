@@ -1,7 +1,8 @@
 import { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import BetRecord from "../../../../component/modals/BetRecord/BetRecord";
-import ChipModal from "../../../../component/shared/ChipModal/ChipModal";
+import ChipModal from "../../ChipModal/ChipModal";
+import BetRecord from "../../../modals/BetRecord/BetRecord";
+import { setStake } from "../../../../redux/features/global/globalSlice";
 
 const Chip = () => {
   const dispatch = useDispatch();

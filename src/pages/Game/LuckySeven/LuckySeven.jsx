@@ -2,23 +2,21 @@ import { useParams } from "react-router-dom";
 
 // import BetHeader from "./component/BetHeader";
 import CardDisplay from "./component/CardDisplay";
-import LiveShowTopPart from "./component/LiveShowTopPart";
+import LiveShowTopPart from "../../../component/shared/Game/LiveShowTopPart/LiveShowTopPart";
 import ResultDisplay from "./component/ResultDisplay";
-import ScoreDisplay from "./component/ScoreDisplay";
+// import ScoreDisplay from "./component/ScoreDisplay";
 import { useGetEventDetailsQuery } from "../../../redux/features/events/events";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Status } from "../../../const";
 import Winner from "./component/Winner";
 import BetArea from "./component/BetArea";
-import Chip from "./component/Chip";
-import GoodRoad from "./component/GoodRoad";
+import Chip from "../../../component/shared/Game/Chip/Chip";
+import GoodRoad from "../../../component/shared/Game/GoodRoad/GoodRoad";
 import Menu from "../../../component/modals/Menu/Menu";
 
 const LuckySeven = () => {
   const { showMenu } = useSelector((state) => state.global);
-  const [double, setDouble] = useState(false);
-  const [animation, setAnimation] = useState([]);
   const [showWinLossResult, setShowWinLossResult] = useState(false);
   const [totalWinAmount, setTotalWinAmount] = useState(null);
   const [currentRoundWinAmount, setCurrentRoundWinAmount] = useState(null);
@@ -45,6 +43,8 @@ const LuckySeven = () => {
 
   const firstEvent = data?.result?.[0];
 
+  console.log(data);
+
   return (
     <div id="App" data-v-app style={{ width: "100%", height: "100%" }}>
       {showMenu && <Menu />}
@@ -53,14 +53,9 @@ const LuckySeven = () => {
           <div data-v-a2a30962 className="default-layout__content">
             <div data-v-3e382ff1 className="subclass">
               <LiveShowTopPart firstEvent={firstEvent} />
-
               <div data-v-3e382ff1 className="bet-wrapper">
-                {/* <BetHeader /> */}
                 <BetArea
                   initialState={initialState}
-                  double={double}
-                  animation={animation}
-                  setAnimation={setAnimation}
                   setShowWinLossResult={setShowWinLossResult}
                   setTotalWinAmount={setTotalWinAmount}
                   stakeState={stakeState}
@@ -80,7 +75,7 @@ const LuckySeven = () => {
                     data-v-3e382ff1
                     className="result-container"
                   >
-                    <ScoreDisplay firstEvent={firstEvent} />
+                    {/* <ScoreDisplay firstEvent={firstEvent} /> */}
                     <CardDisplay firstEvent={firstEvent} />
                     <ResultDisplay firstEvent={firstEvent} />
                     <Winner

@@ -1,31 +1,32 @@
 import { useParams } from "react-router-dom";
-
-// import BetHeader from "./component/BetHeader";
 import CardDisplay from "./component/CardDisplay";
+import LiveShowTopPart from "../../../component/shared/Game/LiveShowTopPart/LiveShowTopPart";
 import ResultDisplay from "./component/ResultDisplay";
-import ScoreDisplay from "./component/ScoreDisplay";
+// import ScoreDisplay from "./component/ScoreDisplay";
 import { useGetEventDetailsQuery } from "../../../redux/features/events/events";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Status } from "../../../const";
 import Winner from "./component/Winner";
 import BetArea from "./component/BetArea";
-import Menu from "../../../component/modals/Menu/Menu";
-import LiveShowTopPart from "../../../component/shared/Game/LiveShowTopPart/LiveShowTopPart";
 import Chip from "../../../component/shared/Game/Chip/Chip";
 import GoodRoad from "../../../component/shared/Game/GoodRoad/GoodRoad";
+import Menu from "../../../component/modals/Menu/Menu";
 
-const DragonTiger2020 = () => {
+const AmarAkbarAnthony = () => {
   const { showMenu } = useSelector((state) => state.global);
   const [showWinLossResult, setShowWinLossResult] = useState(false);
   const [totalWinAmount, setTotalWinAmount] = useState(null);
   const [currentRoundWinAmount, setCurrentRoundWinAmount] = useState(null);
   const { stake } = useSelector((state) => state.global);
   const initialState = {
-    dragon: { show: false, stake },
-    tiger: { show: false, stake },
-    tie: { show: false, stake },
-    suitedTie: { show: false, stake },
+    amar: { show: false, stake },
+    akbar: { show: false, stake },
+    anthony: { show: false, stake },
+    odd: { show: false, stake },
+    even: { show: false, stake },
+    red: { show: false, stake },
+    black: { show: false, stake },
   };
   const [stakeState, setStakeState] = useState(initialState);
   const { eventTypeId, eventId } = useParams();
@@ -44,7 +45,6 @@ const DragonTiger2020 = () => {
           <div data-v-a2a30962 className="default-layout__content">
             <div data-v-3e382ff1 className="subclass">
               <LiveShowTopPart firstEvent={firstEvent} />
-
               <div data-v-3e382ff1 className="bet-wrapper">
                 <BetArea
                   initialState={initialState}
@@ -67,7 +67,7 @@ const DragonTiger2020 = () => {
                     data-v-3e382ff1
                     className="result-container"
                   >
-                    <ScoreDisplay firstEvent={firstEvent} />
+                    {/* <ScoreDisplay firstEvent={firstEvent} /> */}
                     <CardDisplay firstEvent={firstEvent} />
                     <ResultDisplay firstEvent={firstEvent} />
                     <Winner
@@ -94,4 +94,4 @@ const DragonTiger2020 = () => {
   );
 };
 
-export default DragonTiger2020;
+export default AmarAkbarAnthony;

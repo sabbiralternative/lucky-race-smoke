@@ -1,15 +1,15 @@
 import { Fragment } from "react";
 
 const ScoreDisplay = ({ firstEvent }) => {
-  let card = undefined;
-  const indexCard = firstEvent?.indexCard;
-  if (indexCard?.length > 0) {
-    card = Number(indexCard[0].slice(1));
-  }
+  const winner = firstEvent?.runners?.find(
+    (runner) => runner?.status === "WINNER",
+  );
+
+  // console.log(firstEvent?.runners?.[0]?.card?.[0]);
 
   return (
     <Fragment>
-      {card && (
+      {(firstEvent?.runners?.[0]?.card || firstEvent?.runners?.[1]?.card) && (
         <div data-v-6c15a629 className="score-display">
           <div
             data-v-6c15a629
@@ -19,7 +19,7 @@ const ScoreDisplay = ({ firstEvent }) => {
                 'url("https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/dragon-tiger/score-dragon-en-US.png")',
             }}
           >
-            {card < 7 && (
+            {winner?.name === "Dragon" && (
               <img
                 data-v-6c15a629
                 className="app-image dragon-win"
@@ -30,7 +30,7 @@ const ScoreDisplay = ({ firstEvent }) => {
             )}
 
             <span data-v-6c15a629 style={{}}>
-              {firstEvent?.indexCard?.slice(1)}
+              {firstEvent?.runners?.[0]?.card?.slice(1)}
             </span>
           </div>
           <div
@@ -41,7 +41,7 @@ const ScoreDisplay = ({ firstEvent }) => {
                 'url("https://cdn2.aig1234.com/bw/yiy-h5/assets/cg-template-2/red-green/p4/dragon-tiger/score-tiger-en-US.png")',
             }}
           >
-            {card < 7 && (
+            {winner?.name === "Tiger" && (
               <img
                 data-v-6c15a629
                 className="app-image tiger-win"
@@ -51,7 +51,7 @@ const ScoreDisplay = ({ firstEvent }) => {
             )}
 
             <span data-v-6c15a629 style={{}}>
-              {firstEvent?.indexCard?.slice(1)}
+              {firstEvent?.runners?.[1]?.card?.slice(1)}
             </span>
           </div>
           <img

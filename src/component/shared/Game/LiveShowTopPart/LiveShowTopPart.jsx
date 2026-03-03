@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import Counter from "./Counter";
 import { useDispatch } from "react-redux";
 import { setShowMenu } from "../../../../redux/features/global/globalSlice";
-import AntMedia from "../../../../component/shared/Antmedia/Antmedia";
+import AntMedia from "../../Antmedia/Antmedia";
+import Counter from "../Counter/Counter";
 
 const LiveShowTopPart = ({ firstEvent }) => {
   const dispatch = useDispatch();
