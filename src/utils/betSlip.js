@@ -14,6 +14,9 @@ export const isRunnerActive = (data, dataIndex, runnerIndex) => {
 export const getBackPrice = (data, dataIndex, runnerIndex) => {
   return data?.[dataIndex]?.runners?.[runnerIndex]?.back?.[0]?.price;
 };
+export const getRunnerName = (data, dataIndex, runnerIndex) => {
+  return data?.[dataIndex]?.runners?.[runnerIndex]?.name;
+};
 export const getLayPrice = (data, dataIndex, runnerIndex) => {
   return data?.[dataIndex]?.runners?.[runnerIndex]?.lay?.[0]?.price;
 };

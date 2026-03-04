@@ -19,6 +19,14 @@ import AmarAkbarAnthonyB from "../pages/Game/AmarAkbarAnthonyB/AmarAkbarAnthonyB
 import Baccarat from "../pages/Game/Baccarat/Baccarat";
 import CenterCard from "../pages/Game/CenterCard/CenterCard";
 import DragonTigerPhoenix from "../pages/Game/DragonTigerPhoenix/DragonTigerPhoenix";
+import FootballDice from "../pages/Game/FootballDice/FootballDice";
+import FootballStudio from "../pages/Game/FootballStudio/FootballStudio";
+import BollywoodA from "../pages/Game/BollywoodA/BollywoodA";
+import BollywoodB from "../pages/Game/BollywoodB/BollywoodB";
+import Mogambo from "../pages/Game/Mogambo/Mogambo";
+import Muflis from "../pages/Game/Muflis/Muflis";
+import OneDayTeen from "../pages/Game/OneDayTeen/OneDayTeen";
+import TeenTwenty from "../pages/Game/TeenTwenty/TeenTwenty";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -105,6 +113,38 @@ const MainRouter = () => {
       {
         path: "/game/centercard/:eventTypeId/:eventId",
         element: <CenterCard />,
+      },
+      {
+        path: "/game/footballdice/:eventTypeId/:eventId",
+        element: <FootballDice />,
+      },
+      {
+        path: "/game/footballstudio/:eventTypeId/:eventId",
+        element: <FootballStudio />,
+      },
+      {
+        path: "/game/bcasinoa/:eventTypeId/:eventId",
+        element: <BollywoodA />,
+      },
+      {
+        path: "/game/bcasinob/:eventTypeId/:eventId",
+        element: <BollywoodB />,
+      },
+      {
+        path: "/game/mogambo/:eventTypeId/:eventId",
+        element: <Mogambo />,
+      },
+      {
+        path: "/game/teenmuf/:eventTypeId/:eventId",
+        element: <Muflis />,
+      },
+      {
+        path: "/game/teen/:eventTypeId/:eventId",
+        element: <OneDayTeen />,
+      },
+      {
+        path: "/game/teen20/:eventTypeId/:eventId",
+        element: <TeenTwenty />,
       },
     ],
     {
