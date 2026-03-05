@@ -27,6 +27,11 @@ import Mogambo from "../pages/Game/Mogambo/Mogambo";
 import Muflis from "../pages/Game/Muflis/Muflis";
 import OneDayTeen from "../pages/Game/OneDayTeen/OneDayTeen";
 import TeenTwenty from "../pages/Game/TeenTwenty/TeenTwenty";
+import RouletteGame from "../pages/Game/Roulette/Roulette";
+import War from "../pages/Game/War/War";
+import ImperialQuest from "../pages/Game/ImperialQuest/ImperialQuest";
+import TeenPatti2020 from "../pages/Game/TeenPatti2020/TeenPatti2020";
+import ThreeCardJudgement from "../pages/Game/ThreeCardJudgement/ThreeCardJudgement";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -76,6 +81,10 @@ const MainRouter = () => {
       },
       {
         path: "/game/dt2020/:eventTypeId/:eventId",
+        element: <DragonTiger2020 />,
+      },
+      {
+        path: "/game/dt20/:eventTypeId/:eventId",
         element: <DragonTiger2020 />,
       },
       {
@@ -145,6 +154,26 @@ const MainRouter = () => {
       {
         path: "/game/teen20/:eventTypeId/:eventId",
         element: <TeenTwenty />,
+      },
+      {
+        path: "/game/roulette/:eventTypeId/:eventId",
+        element: <RouletteGame />,
+      },
+      {
+        path: "/game/war/:eventTypeId/:eventId",
+        element: <War />,
+      },
+      {
+        path: "/game/imperialquest/:eventTypeId/:eventId",
+        element: <ImperialQuest />,
+      },
+      {
+        path: "/game/teenpatti2020/:eventTypeId/:eventId",
+        element: <TeenPatti2020 />,
+      },
+      {
+        path: "/game/3cardjudgement/:eventTypeId/:eventId",
+        element: <ThreeCardJudgement />,
       },
     ],
     {
