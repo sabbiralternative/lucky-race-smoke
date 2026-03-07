@@ -19,6 +19,7 @@ import roulette_active from "./images/roulette_active.webp";
 import newImg from "./images/i_new.png.webp";
 import teenpatti from "./images/teenpatti.webp";
 import teenpatti_active from "./images/teenpatti_active.webp";
+import arrowLeft from "./images/i_arrow_left.png.webp";
 
 export default {
   lobbyNo,
@@ -37,4 +38,5 @@ export default {
   teenpatti_active,
   fast_game_active,
   originals_active,
+  arrowLeft,
 };
