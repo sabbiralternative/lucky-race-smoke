@@ -147,7 +147,7 @@ const Menu = () => {
                               transform:
                                 activeTab === "setting"
                                   ? "translateX(0px)"
-                                  : "translateX(-320px)",
+                                  : "translateX(-100%)",
                               width: "100%",
                             }}
                           >

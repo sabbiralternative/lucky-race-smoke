@@ -32,13 +32,18 @@ import War from "../pages/Game/War/War";
 import ImperialQuest from "../pages/Game/ImperialQuest/ImperialQuest";
 import TeenPatti2020 from "../pages/Game/TeenPatti2020/TeenPatti2020";
 import ThreeCardJudgement from "../pages/Game/ThreeCardJudgement/ThreeCardJudgement";
+import PrivateRoute from "./PrivateRoute";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
     [
       {
         path: "/",
-        element: <App />,
+        element: (
+          <PrivateRoute>
+            <App />
+          </PrivateRoute>
+        ),
 
         children: [
           {
